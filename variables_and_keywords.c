@@ -40,13 +40,13 @@ char test_goto(int a ,char chr){
 
 //declaring complex statements
 
-char (*fp)(int , char[1]);
+char (*fp)(int , char);
 
 int main(void){
     printf("%s" , global_str52141);
     printf("%c\n" , global_char123); //%c specifier for char
     printf("%f\n" , global_float123);
-    printf("%d\n" , global_double123);
+    printf("%lf\n" , global_double123);
     function();
     function();
     function();
@@ -71,9 +71,9 @@ int main(void){
     float f;//4
     double d ;//8
     long double ld;//16
-    printf("\n si : %10i bytes \nsui : %10i bytes \ni : %12i bytes \
-    \nui : %11i bytes \nli : %11i bytes \nuli : %10i bytes \nlli : %10i bytes \nulli : %9i bytes \nf : %12i bytes \
-    \nd : %12i bytes \nld : %12i bytes" ,sizeof( si) ,sizeof(sui) ,sizeof(i),sizeof(ui),sizeof(li),sizeof(uli),sizeof( lli),sizeof(ulli) ,sizeof( f),sizeof(d),sizeof(ld));
+    printf("\n si : %10lu bytes \nsui : %10lu bytes \ni : %12lu bytes \
+    \nui : %11lu bytes \nli : %11lu bytes \nuli : %10lu bytes \nlli : %10lu bytes \nulli : %9lu bytes \nf : %12lu bytes \
+    \nd : %12lu bytes \nld : %12lu bytes" ,sizeof  si ,sizeof sui ,sizeof i,sizeof ui,sizeof li,sizeof uli,sizeof  lli,sizeof ulli ,sizeof  f,sizeof d,sizeof ld);
 
     //local or block scope variables
 
@@ -94,18 +94,18 @@ int main(void){
 
         imported_fun();
 
-        long long int pointer_fun = &imported_fun;
+        long long int pointer_fun = (long long) &imported_fun;
 
-        printf("%lli, %lli" , imported_fun , pointer_fun);
+        printf("%p, %lli" , imported_fun , pointer_fun);
 
         complex_declaration:
-            fp = test_goto;
-            printf("\n\n\tthis is pointer of test_goto() : %u" , *fp);
+            fp = &test_goto;
+            printf("\n\n\tthis is pointer of test_goto() : %p" , *fp);
 
-        float_precision:
-            float num = 45.49384834;
-            printf("\n this is +ve precision %15.5f ", num);
-            printf("\n%-15.5f  this is -ve precision ", num);
+        float_precision: ;
+            double num = 45.49384834;
+            printf("\n this is +ve precision %15.5lf ", num);
+            printf("\n%-15.5lf  this is -ve precision ", num);
 
     }
 
