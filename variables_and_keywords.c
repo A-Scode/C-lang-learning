@@ -109,5 +109,46 @@ int main(void){
 
     }
 
+    //declaring constants
+
+    //using const
+    const  double pie = 3.14;
+    printf("\npie : %lf", pie);
+
+    //usning enum
+    enum const_vars {const1 =2 ,const2 =3, const3=4} ;
+    printf("\n\n\t%u%i%d this is something constant",const1,const2,\
+    const3);
+
+    //macros as constant 
+    #define new_ratio_const 2/1
+    printf("\n macro const new ratio const : %i", new_ratio_const);
+
+    //octal ,dec,hex
+    //in c 0 is null \0 is format specifier for null
+
+    int oct = 012; //0 is prefix for octal
+    char hex = 0x61;
+    int bin = 0b1010;
+    printf("\nthis is octal %o %d" , oct, oct);
+    printf("\nthis is hex %x %c" , hex, hex);
+    printf("\nthis is bin %i" , bin); //no format specifier for binary
+    char c = 97;
+    c  = c+10;
+    printf("\n\n%c",c); //will convert it to ascii
+
+//in c if int is compared to unsigned than the int is
+//promoted to unsigned
+
+//check how varibles work
+
+float f_int = 0.1;
+if (f_int == 0.1f) //f is necessary to specify it is a single precisioin floating point
+printf("\n\n%f", f_int);
+
+long llong;
+unsigned us;   // all are valid because int is called implicitly
+long long lllong; //all are grabage value because not used in the program
+
     return 0;
 }
