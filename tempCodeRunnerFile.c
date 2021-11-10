@@ -1,1 +1,1 @@
-"./hello_world.exe",0
+(int) sizeof( arr)
