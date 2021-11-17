@@ -1,10 +1,22 @@
 #include <stdio.h>
+#include <stdlib.h> // for using malloc,free and realloc
+#include <string.h>
 
 void print_arr_func(int arr[]){
     printf("\nthe array is : \n");
     for (int i = 0;i< sizeof( arr)/sizeof(int);i++){
         printf("%d\n", i[arr]);
     }
+}
+
+//stirng returning function
+char *this_is_string(){
+    char *str = "\nstring pointer returned from a funtion....\n";
+    return str; ///reutrning pointer
+}
+
+void arr_func(int n ,int m, int arr[][n][m]){
+
 }
 
 int main(void){
@@ -58,7 +70,114 @@ int main(void){
     printf("\nchar pointer : %c\n", *chrptr);
     printf("\nchar double pointer : %c\n", **dbptr);
 
+    //multi-dimensional array
 
+    // int arr4[][][5];// will cause error bcoz left most only allowed to be unspecified
 
+    int arr4[][5][5]={
+        {{1,1,1,1,1},{1,1,1,1,1},{1,1,1,1,1},{1,1,1,1,1},{1,1,1,1,1}},
+        {{1,1,1,1,1},{1,1,1,1,1},{1,1,1,1,1},{1,1,1,1,1},{1,1,1,1,1}},
+        {{1,1,1,1,1},{1,1,1,1,1},{1,1,1,1,1},{1,1,1,1,1},{1,1,1,1,1}},
+        {{1,1,1,1,1},{1,1,1,1,1},{1,1,1,1,1},{1,1,1,1,1},{1,1,1,1,1}},
+        {{1,1,1,1,1},{1,1,1,1,1},{1,1,1,1,1},{1,1,1,1,1},{1,1,1,1,1}}
+    };
+
+    //traversing 3d array
+    printf("\n3D-Array : --->\n");
+    printf("arr[0] :%d \n" , sizeof arr4/sizeof arr4[0]); //arr4[0] is treated as *(arr4+0) by compiler
+    printf("arr[0][0] :%d \n" , sizeof arr4[0]/sizeof arr4[0][0]);
+    printf("arr[0][0][0] :%d \n" , sizeof arr4[0][0]/sizeof arr4[0][0][0]);
+    for (int i =0; i< sizeof arr4/sizeof arr4[i]; i++){
+        for (int j =0; j< sizeof arr4[i]/sizeof arr4[i][j]; j++){
+            for (int k =0; k< sizeof arr4[i][j]/sizeof arr4[i][j][k]; k++){
+                printf("%d,%d,%d-%d ",i,j,k,arr4[i][j][k]);
+                if (k==( sizeof arr4[i][j]/sizeof arr4[i][j][k] -1)) printf("\n");
+            }
+        }
+    }
+
+    //strcpy
+    char str2[30] = "hdzdf" , str3[30];
+    *str2 = 'A';//since str2 is pointer to base address of string array so only str2[0] is writable with this
+    strcpy(str3, str2);
+    printf("\nstr3 : %s\n",str3);
+
+    //strcat 
+    char str4[]="hello ", str5[] = "world";
+    printf("\n%s\n", strcat(str4 , str5)); //takes string pointer and return string pointer
+
+    //strcmp
+    char str6lft[]="zfz" , str6rgt[]="gfg";
+    printf("\nstr6lft : %s , str6rgt : %s",str6lft,str6rgt);
+    printf("\nThe comparisionof str6lft and str6rgt : %d\n", strcmp(str6lft,str6rgt));//reutrns 1 ,since lft is greater than rgt(i.e. >0)
+
+    char str7lft[]="gfg" , str7rgt[]="gfg";
+    printf("\nstr7lft : %s , str7rgt : %s",str7lft,str7rgt);
+    printf("\nThe comparisionof str7lft and str7rgt : %d\n", strcmp(str7lft,str7rgt));//reutrns 0 ,since lft is equal to rgt(i.e. =0)
+
+    char str8lft[]="bfb" , str8rgt[]="gfg";
+    printf("\nstr8lft : %s , str8rgt : %s",str8lft,str8rgt);
+    printf("\nThe comparisionof str8lft and str8rgt : %d\n", strcmp(str8lft,str8rgt));//reutrns -1 ,since lft is lesser than rgt(i.e. <0)
+
+    //string literal stored in read-only part of memory,attempt to modifying them gives undefined behaviour
+
+    //declaring string with pointers
+    char *s = "this is string saved as pointer location";
+    
+    //since it is pointer so it has sizeof long unsigned i.e. 8
+    printf("\nsizeof *s is : %d\n",sizeof s);
+    printf("\*s is : %s\n", s);
+
+    //conclusion is both are same but diff is we can't use sizeof operator and other related things
+
+    //gets() is risky bcoz it doesn't checks the array bounds . so it suffers from buffer overflow
+    char str9[10],str10[10];
+    printf("\nEnter a string : ");
+    gets(str9);
+    scanf("%[^\n]s", str10);//this will automatically bypassed
+    printf("\nstr9 : %s , str10 : %s\n",str9 , str10);
+
+    //therefore fgets used to get string input instead of gets
+    char *str11; //can be used get string of undefined sizes
+    printf("\nEnter strings for str11 : ");
+    scanf(" %s",str11);
+    printf("\nstr11 : %s", str11); //any length of string can be inputed
+    printf("\nlength of str11 is : %d\n" , strlen(str11)); //strlen gives size excluding \0 character
+    if (strlen(str11) == 0) printf("\n isNull");
+
+    //storing string in read-write segment stack segment
+    char str12[] ="hello this is string";  //stored in stack segment like other auto variables
+    *(str12+1) = 65; //base address + 1
+    printf("\nstr12 : %s\n", str12);
+    printf("this_is_string() : %s\n",this_is_string());
+
+    //3d array passing to a function
+    arr_func(5, 5, arr4 );
+    
+    //multiline strings in c
+
+    char *str13 = "hello "   "this multiline stirng works "
+    "without any special charcter"  //compiler makes these string as one
+    ;
+    puts(str13);
+
+    //arrays of void type and function type don't works
+    //void type pointer are possible like
+
+    void *arr5;
+
+    printf("%p\n",arr5);
+
+    //short hand notation for array in c
+    //this is same as {1,1,1,1,1,0,50,50,50}
+    int arr6[10] = {[0 ... 4]1, [6 ... 8]50};
+                //using index to map multiple values
+
+    printf("%d\n",*(arr6+4));//gap at 5 will be filled by 0
+
+    //string duplicate
+    char * dupstr11 = strdup(str11);//returns a char * pointer
+    //strndump is same but takes n , to copy only n bytes
+    
     return 0;
 }

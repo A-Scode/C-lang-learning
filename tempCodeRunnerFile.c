@@ -1,1 +1,1 @@
-(int) sizeof( arr)
+nstr8lft
