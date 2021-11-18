@@ -184,14 +184,19 @@ int main(void){
     //matches two string and return pointer to the matching character
     char* strpbrk_char;
     strpbrk_char =  strpbrk(str12, s);
-    printf("\nThe first matching char in s & str13 is : %s\n", *strpbrk_char);
+    printf("\nThe first matching char in s & str13 is : %s\n", strpbrk_char);
 
     //ispunct
     //defined in ctypes.h  
     //all character that nither alphanumeric nor space are included in puctuation
     // ! " # $ % & ' ( ) * +, - . / : ;  ? @ [ \ ] ^ _ ` { | } ~
 
-    // printf("\ncheck ']'  is punctuation or not : %d\n", ispunct(']'));
+    printf("\ncheck ']'  is punctuation or not : %d\n", ispunct(']'));
+
+    //isapha and isdigit
+    //returns non-zero on true and zero on false
+
+    printf("this is a num : %d ; this is alpha : %d" , isdigit('5'), isalpha('a'));
 
     
     return 0;
