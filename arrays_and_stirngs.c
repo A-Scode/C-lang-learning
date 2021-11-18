@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h> // for using malloc,free and realloc
 #include <string.h>
+#include <ctype.h>
 
 void print_arr_func(int arr[]){
     printf("\nthe array is : \n");
@@ -184,6 +185,13 @@ int main(void){
     char* strpbrk_char;
     strpbrk_char =  strpbrk(str12, s);
     printf("\nThe first matching char in s & str13 is : %s\n", *strpbrk_char);
+
+    //ispunct
+    //defined in ctypes.h  
+    //all character that nither alphanumeric nor space are included in puctuation
+    // ! " # $ % & ' ( ) * +, - . / : ;  ? @ [ \ ] ^ _ ` { | } ~
+
+    // printf("\ncheck ']'  is punctuation or not : %d\n", ispunct(']'));
 
     
     return 0;
