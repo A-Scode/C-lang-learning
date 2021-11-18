@@ -156,7 +156,7 @@ int main(void){
     
     //multiline strings in c
 
-    char *str13 = "hello "   "this multiline stirng works "
+    char *str13 = "zello "   "this multiline stirng works "
     "without any special charcter"  //compiler makes these string as one
     ;
     puts(str13);
@@ -176,8 +176,15 @@ int main(void){
     printf("%d\n",*(arr6+4));//gap at 5 will be filled by 0
 
     //string duplicate
-    char * dupstr11 = strdup(str11);//returns a char * pointer
+    char* dupstr11 = strdup(str11);//returns a char * pointer
     //strndump is same but takes n , to copy only n bytes
+
+    //strpbrk
+    //matches two string and return pointer to the matching character
+    char* strpbrk_char;
+    strpbrk_char =  strpbrk(str12, s);
+    printf("\nThe first matching char in s & str13 is : %s\n", *strpbrk_char);
+
     
     return 0;
 }
