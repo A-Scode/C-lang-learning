@@ -73,7 +73,7 @@ int main(void){
     long double ld;//16
     printf("\n si : %10lu bytes \nsui : %10lu bytes \ni : %12lu bytes \
     \nui : %11lu bytes \nli : %11lu bytes \nuli : %10lu bytes \nlli : %10lu bytes \nulli : %9lu bytes \nf : %12lu bytes \
-    \nd : %12lu bytes \nld : %12lu bytes" ,sizeof  si ,sizeof sui ,sizeof i,sizeof ui,sizeof li,sizeof uli,sizeof  lli,sizeof ulli ,sizeof  f,sizeof d,sizeof ld);
+    \nd : %12lu bytes \nld : %12lu bytes" ,sizeof  si ,sizeof sui ,sizeof i,sizeof ui,sizeof li,sizeof uli,sizeof  lli,sizeof ulli ,  f,sizeof d,sizeof ld);
 
     //local or block scope variables
 
