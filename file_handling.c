@@ -81,6 +81,8 @@ int main(){
 
     printf("\npos is : %llu\n", pos);
 
+    fseek(file4 , 0 , SEEK_SET);
+
     printf("\nthe data in the file : \n\t%s\t%d\t%f\n",read_female.name , read_female.age, read_female.percentage);
     fclose(file4);
 

@@ -4,6 +4,7 @@
         "stdbool.h": "c",
         "cstdint": "cpp",
         "cmath": "cpp",
-        "*.tcc": "cpp"
+        "*.tcc": "cpp",
+        "WRITING_TO_FILE.C": "cpp"
     }
 }
