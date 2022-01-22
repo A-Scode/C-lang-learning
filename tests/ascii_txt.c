@@ -460,6 +460,18 @@ void print_Z(struct reg* chr_reg){
     nxt_char(chr_reg->id );
 }
 }
+
+void print_Space(struct reg* chr_reg){
+    if (chr_reg->line_no == line_no){
+    for (int j = 1 ; j <= font_size ; j++){
+       printf(seperator);
+    }
+    printf("  ");
+
+    chr_reg->line_no++;
+    nxt_char(chr_reg->id );
+}
+}
 // char patterns end
 
 void nxt_char(char* substr ){
@@ -468,6 +480,11 @@ void nxt_char(char* substr ){
     else  nxt_char =  substr[0];
 
     switch (nxt_char){
+        case 32 :
+            substr += 1; 
+            struct reg new_charSpace = {  substr , line_no  };
+            print_Space(&new_charSpace ) ;
+            break;
         case 65 :
             substr += 1; 
             struct reg new_charA = {  substr , line_no  };

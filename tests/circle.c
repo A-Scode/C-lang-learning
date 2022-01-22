@@ -8,10 +8,10 @@ int main(){
     printf("Enter the radius : ");
     scanf("%d" , &rad);
 
-    printf("\033[0;32m"); // set green
+    printf("\033[0;32m\n"); // set green
 
     for (int r = 0 ; r <= (2*rad) ; r++){
-        for (int c = 0 ; c <= (2*rad) ; c++){
+        for (int/*testing this comment*/ c = 0 ; c <= (2*rad) ; c++){
             int check_rad = floor(sqrt( pow((r - rad),2.0) + pow((c - rad) , 2.0) ));
 
             if (check_rad == rad){
