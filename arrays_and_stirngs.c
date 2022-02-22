@@ -149,6 +149,8 @@ int main(void){
     //storing string in read-write segment stack segment
     char str12[] ="hello this is string";  //stored in stack segment like other auto variables
     *(str12+1) = 65; //base address + 1
+    str12[20]='s';
+    str12[21] = 'k';
     printf("\nstr12 : %s\n", str12);
     printf("this_is_string() : %s\n",this_is_string());
 
@@ -197,6 +199,7 @@ int main(void){
     //returns non-zero on true and zero on false
 
     printf("this is a num : %d ; this is alpha : %d" , isdigit('5'), isalpha('a'));
+
 
     
     return 0;
