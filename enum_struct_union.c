@@ -4,7 +4,7 @@
 
 struct struct1 {
     int x, y; //x=10 will give error bcoz no memory allocated just data type declared
-    float z; //members
+    float z //members
 }; //remember it's not a block
 
 union union1{

@@ -5,6 +5,7 @@
         "cstdint": "cpp",
         "cmath": "cpp",
         "*.tcc": "cpp",
-        "WRITING_TO_FILE.C": "cpp"
+        "WRITING_TO_FILE.C": "cpp",
+        "conio.h": "c"
     }
 }

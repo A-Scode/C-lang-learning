@@ -1,3 +1,5 @@
 this new file
 inserted new line
 again a new line
+this is some add content in it how it looks 
+hmm.
